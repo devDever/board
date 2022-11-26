@@ -1,0 +1,147 @@
+@use "sass:math";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+@import "colors.scss";
+@import "mixins.scss";
+
+@function toVw($target) {
+    $vw-context: (1400 * 0.01) * 1px;
+    @return math.div($target, $vw-context) * 1vw;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+}
+
+body, html{
+    font-size: toVw(13px);
+    font-family: 'Lato', sans-serif;
+}
+
+.layout{
+    height: 100vh;
+    display: flex;
+    background-image: url('../img/main-bg-image.jpg');
+    @include bg-default();
+}
+
+.sidebar{
+    width: toVw(334px);
+    display: flex;
+}
+
+.services{
+    opacity: 0.7;
+    height: 100%;
+    width: toVw(70px);
+    padding-top: toVw(30px);
+    background-color: $c-black;
+
+    .service{
+        opacity: .3;
+        cursor: pointer;
+        position: relative;
+        padding: 0 toVw(14.5px);
+        margin-bottom: toVw(18.5px);
+
+        &.active{
+            opacity: 1;
+            &::before{
+                @include after();
+                top: 50%;
+                width: toVw(7px);
+                height: toVw(7px);
+                left: toVw(-3.5px);
+                border-radius: 50%;
+                background-color: $c-grey;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.navigation-panel{
+    width: toVw(260px);
+    background-color: #25272A;
+    opacity: .75;
+    color: $c-grey;
+    padding-top: toVw(30px);
+    padding-left: toVw(25.5px);
+    padding-right: toVw(24px);
+    &-top{
+        @include flex-between();
+        &__title{
+            font-size: toVw(20px);
+            position: relative;
+            color: #fff;
+
+            &::after{
+                @include after();
+                @include bg-default();
+                background-image: url('../img/arrow-down.svg');
+                width: toVw(9.50px);
+                height: toVw(5.50px);
+                right: toVw(-16px);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        img{
+            width: toVw(14px);
+        }
+    }
+    &-message{
+        display: flex;
+        margin-top: toVw(30px);
+        img{
+            width: toVw(18px);
+            margin-right: toVw(11px);
+        }
+    }
+
+    &__top{
+        @include flex-between();
+        margin-bottom: toVw(15px);
+    }
+
+    &-channels{
+        margin-top: toVw(32px);
+        &__list{
+            max-height: toVw(320px);
+            overflow-y: auto;
+            margin-bottom: toVw(17.5px);
+            &-item{
+                border-radius: toVw(7px);
+                padding: toVw(8px) toVw(12px);
+                &.active{
+                    background-color: $c-dark-grey;
+                    color: #fff;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &-friends{
+        &__list{
+            &-item{
+                display: flex;
+                align-items: center;
+                margin-bottom: toVw(10px);
+                img{
+                    width: toVw(35px);
+                    // display: block;
+                    border-radius: toVw(7px);
+                    margin-right: toVw(11px);
+                }
+            }
+        }
+    }
+}
