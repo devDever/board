@@ -5,6 +5,10 @@
 @import "colors.scss";
 @import "mixins.scss";
 
+@mixin back($value) {
+    background-color: $value;
+}
+
 @function toVw($target) {
     $vw-context: (1400 * 0.01) * 1px;
     @return math.div($target, $vw-context) * 1vw;
@@ -35,6 +39,8 @@ body, html{
 .sidebar{
     width: toVw(334px);
     display: flex;
+    background-color: #25272A;
+    opacity: .75;
 }
 
 .services{
@@ -69,8 +75,6 @@ body, html{
 
 .navigation-panel{
     width: toVw(260px);
-    background-color: #25272A;
-    opacity: .75;
     color: $c-grey;
     padding-top: toVw(30px);
     padding-left: toVw(25.5px);
@@ -140,6 +144,68 @@ body, html{
                     // display: block;
                     border-radius: toVw(7px);
                     margin-right: toVw(11px);
+                }
+            }
+        }
+    }
+}
+
+.chat{
+    background-color: #fff;
+    width: toVw(870px);
+    padding-top: toVw(30px);
+    &-navigation{
+        @include flex-between();
+        &__name{
+            font-weight: 700;
+            font-size: toVw(20px);
+            position: relative;
+            &::after{
+                @include after();
+                @include bg-default();
+                background-image: url('../img/star.svg');
+                width: toVw(15px);
+                height: toVw(15px);
+                right: toVw(15px);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &-search{
+            @include flex-between();
+            @include flex-center();
+            &__subscribers{
+                margin-right: toVw(20.5px);
+                img{
+                    width: toVw(10.5px);
+                    margin-right: toVw(6.5px);
+                }
+            }
+
+            &__input{
+                position: relative;
+                input{
+                    padding-top: toVw(7px);
+                    padding-bottom: toVw(8px);
+                    padding-left: toVw(15.5px);
+                    width: toVw(240px);
+                    position: relative;
+                    &::placeholder{
+                        font-weight: 400;
+                        font-size: toVw(14px);
+                        color: $c-dark-grey;
+                    }
+
+                }
+                &::after{
+                    @include after();
+                    @include bg-default();
+                    background-image: url('../img/search.svg');
+                    width: toVw(15.5px);
+                    height: toVw(15.5px);
+                    right: toVw(15px);
+                    top: 50%;
+                    transform: translateY(-50%);
                 }
             }
         }

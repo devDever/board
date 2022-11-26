@@ -26,6 +26,8 @@ body, html {
 .sidebar {
   width: 23.8571428571vw;
   display: flex;
+  background-color: #25272A;
+  opacity: 0.75;
 }
 
 .services {
@@ -60,8 +62,6 @@ body, html {
 
 .navigation-panel {
   width: 18.5714285714vw;
-  background-color: #25272A;
-  opacity: 0.75;
   color: #AAAEB4;
   padding-top: 2.1428571429vw;
   padding-left: 1.8214285714vw;
@@ -132,4 +132,86 @@ body, html {
   width: 2.5vw;
   border-radius: 0.5vw;
   margin-right: 0.7857142857vw;
+}
+
+.chat {
+  background-color: #fff;
+  width: 62.1428571429vw;
+  padding-top: 2.1428571429vw;
+}
+.chat-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+.chat-navigation__name {
+  font-weight: 700;
+  font-size: 1.4285714286vw;
+  position: relative;
+}
+.chat-navigation__name::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/star.svg");
+  width: 1.0714285714vw;
+  height: 1.0714285714vw;
+  right: 1.0714285714vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.chat-navigation-search {
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-navigation-search__subscribers {
+  margin-right: 1.4642857143vw;
+}
+.chat-navigation-search__subscribers img {
+  width: 0.75vw;
+  margin-right: 0.4642857143vw;
+}
+.chat-navigation-search__input {
+  position: relative;
+}
+.chat-navigation-search__input input {
+  padding-top: 0.5vw;
+  padding-bottom: 0.5714285714vw;
+  padding-left: 1.1071428571vw;
+  width: 17.1428571429vw;
+  position: relative;
+}
+.chat-navigation-search__input input::-moz-placeholder {
+  font-weight: 400;
+  font-size: 1vw;
+  color: #919191;
+}
+.chat-navigation-search__input input:-ms-input-placeholder {
+  font-weight: 400;
+  font-size: 1vw;
+  color: #919191;
+}
+.chat-navigation-search__input input::placeholder {
+  font-weight: 400;
+  font-size: 1vw;
+  color: #919191;
+}
+.chat-navigation-search__input::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/search.svg");
+  width: 1.1071428571vw;
+  height: 1.1071428571vw;
+  right: 1.0714285714vw;
+  top: 50%;
+  transform: translateY(-50%);
 }/*# sourceMappingURL=style.css.map */
