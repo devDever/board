@@ -154,8 +154,12 @@ body, html{
     background-color: #fff;
     width: toVw(870px);
     padding-top: toVw(30px);
+    padding-left: toVw(23.5px);
+    padding-right: toVw(23.5px);
+    position: relative;
     &-navigation{
         @include flex-between();
+        padding-bottom: toVw(20px);
         &__name{
             font-weight: 700;
             font-size: toVw(20px);
@@ -166,7 +170,7 @@ body, html{
                 background-image: url('../img/star.svg');
                 width: toVw(15px);
                 height: toVw(15px);
-                right: toVw(15px);
+                right: toVw(-20px);
                 top: 50%;
                 transform: translateY(-50%);
             }
@@ -209,5 +213,125 @@ body, html{
                 }
             }
         }
+
+        &-notification{
+            &__ring{
+                position: relative;
+                width: toVw(12px);
+                margin: 0 toVw(23.5px);
+                &::after{
+                    @include after();
+                    width: toVw(4px);
+                    height: toVw(4px);
+                    background-color: $c-red;
+                    border-radius: 50%;
+                    right: 0;
+                    top: 0;
+                }
+                img{
+                    width: toVw(14.21px);
+                }
+            }
+            &__menu{
+                span{
+                    display: block;
+                    background-color: $c-dark-grey;
+                    width: toVw(3.5px);
+                    height: toVw(3.5px);
+                    border-radius: 50%;
+                    margin-bottom: toVw(2px);
+                }
+            }
+        }
+    }
+
+    &-messages{
+        position: relative;
+    }
+
+
+    &-message{
+        // border-top: toVw(1px) solid $c-light-grey;
+        display: flex;
+        padding-top: toVw(18.5px);
+        padding-bottom: toVw(20px);
+        position: relative;
+        
+        &:first-child{
+            border-top: none;
+        }
+        & > img{
+            width: toVw(32.41px);
+            max-height: toVw(33px);
+            border: toVw(5px);
+            margin-right: toVw(12.15px);
+        }
+        &-info{
+            &-person__data{
+                margin-bottom: toVw(5px);
+            }
+            &-person__message{
+                &-image{
+                    position: relative;
+                    img{
+                        max-width: toVw(267.5px);
+                        border-radius: toVw(3px);
+                    }
+                    .message-reaction{
+                        position: absolute;
+                        right: toVw(-22px);
+                        bottom: toVw(-9px);
+                    }
+                }
+            }
+        }
+    }
+
+    &-message-date{
+        text-align: center;
+        position: relative;
+        p{
+            position: relative;
+            z-index: 2;
+            background-color: #fff;
+            display: block;
+            width: fit-content;
+            margin: auto;
+            padding: 0 toVw(14.5px);
+            color: $c-dark-grey;
+        }
+        &::after{
+            @include after();
+            height: toVw(1px);  
+            background-color: $c-light-grey;
+            width: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+
+        }
+    }
+
+}
+
+.message-reaction{
+    background-color: #fff;
+    box-shadow: 0 toVw(2px) toVw(8px) rgba(0, 0, 0, 0.14);
+    border-radius: toVw(5px);
+    width: toVw(44px);
+    height: toVw(24px);
+    // padding-top: toVw(3px);
+    // padding-bottom: toVw(5px);
+    padding-left: toVw(5.5px);
+    padding-right: toVw(5.5px);
+    display: flex;
+    align-items: center;
+    &-emoji{
+        margin-right: toVw(4.5px);
+        font-size: toVw(15px);
+    }
+    &-counter{
+        font-size: toVw(12px);
     }
 }
